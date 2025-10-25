@@ -1,28 +1,40 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import PlanForm from './components/PlanForm';
+import CoachChatPreview from './components/CoachChatPreview';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-black text-white">
+      <Hero />
+      <main className="relative z-10">
+        <section id="features" className="py-20">
+          <div className="container mx-auto max-w-7xl px-6">
+            <Features />
+          </div>
+        </section>
+        <section id="plan" className="py-20 bg-gradient-to-b from-black via-zinc-950 to-black">
+          <div className="container mx-auto max-w-6xl px-6">
+            <PlanForm />
+          </div>
+        </section>
+        <section id="coach" className="py-20">
+          <div className="container mx-auto max-w-6xl px-6">
+            <CoachChatPreview />
+          </div>
+        </section>
+      </main>
+      <footer className="border-t border-white/10">
+        <div className="container mx-auto max-w-7xl px-6 py-8 flex items-center justify-between text-sm text-zinc-400">
+          <p>© {new Date().getFullYear()} AIGym Coach. All rights reserved.</p>
+          <nav className="flex gap-6">
+            <a className="hover:text-white transition" href="#features">Features</a>
+            <a className="hover:text-white transition" href="#plan">Your Plan</a>
+            <a className="hover:text-white transition" href="#coach">Coach</a>
+          </nav>
         </div>
-      </div>
+      </footer>
     </div>
-  )
+  );
 }
-
-export default App
